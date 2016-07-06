@@ -1,0 +1,14 @@
+{
+  "name": "LunTest",
+  "description": "Test from Lun.ua",
+  "main": "gulpfile.js",
+  "authors": [
+    "Vladimir Metnev <vladimirmetnew@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Metnew/lun.ua-test",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.5.3"
+  }
+}
