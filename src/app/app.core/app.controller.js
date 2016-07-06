@@ -1,5 +1,11 @@
-export default function AppController($scope, $log) {
+export default function AppController($scope, $log, $rootScope) {
     'ngInject';
-    
-    $log.debug('AppController')
+
+    var stateChangeStartWatcher = $rootScope.$on('$stateChangeStart', (event, next) => {
+        $rootScope.currentState = next.data;
+        $rootScope.finishedSteps.push($rootScope.currentState.step);
+    });
+
+    $rootScope.$on('$destroy', stateChangeStartWatcher);
+
 }

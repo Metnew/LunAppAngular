@@ -10,7 +10,7 @@
     "scripts": {
         "build": "gulp",
         "start": "gulp scripts:watch styles serve",
-        "serve:dist": "gulp serve:dist",
+        "serve:dist": "gulp serve:dist"
     },
     "devDependencies": {
         "estraverse": "~4.1.0",

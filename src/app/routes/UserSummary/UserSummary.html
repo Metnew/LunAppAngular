@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">
+            {{user.name}}
+        </span>
+        <span class="card-subtitle">
+            {{user.email}}
+        </span>
+
+        <p>{{user.city}}, {{user.country}}</p>
+
+        <div class="card-image">
+            <img ng-src="{{user.pet}}" />
+        </div>
+
+        <div class="card-links">
+            <a ng-repeat="(key, value) for contact in user.contacts">
+                <span class="text-grey">{{key}}:</span> {{value}}
+            </a>
+        </div>
+    </div>
+</div>
+<div class="actions-panel">
+    <button class="yellow btn" ng-click="ctrl.restartQuiz()">Restart Quiz</button>
+</div>

@@ -2,124 +2,71 @@
    sass dependencies when defined in the bower.json of your dependencies */
 // bower:scss
 // endbower
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700&subset=latin,cyrillic);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css);
+//vars
+$yellow: #ff9800;
+$white: #fff;
+$body-background: #f5f5f5;
+$shadow-1: 0 1px 2px rgba(0,0,0,0.2);
+$grey-text: #bbbbbb;
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+// mixins
+@mixin easy-transition-in() {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+@mixin shadow-1() {
+    box-shadow: $shadow-1;
+}
+@mixin easy-transition-out() {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-body {
-  margin: 0;
+// box-sizing
+* {
+    box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-}
+// normalize text length
+.steps-container {
+    margin-bottom: 16px;
+    label.step {
+        background-color: $white;
+        padding: 0px;
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
 
-.container {
-  width: 1170px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.navbar {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
-  background-color: #222;
-
-  &>a {
-    float: left;
-    color: lightgrey;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px;
-    height: 50px;
-  }
-
-  ul {
-    float: left;
-    padding: 0;
-    margin: 0;
-
-    li {
-      float: left;
-      position: relative;
-      display: block;
-
-      a {
-        color: white;
-        position: relative;
+        &.finished {
+            color: $yellow;
+        }
+        & + .step {
+            margin-right: 8px;
+        }
+    }
+    .step-description {
         display: block;
-        padding: 15px;
-        line-height: 20px;
-      }
-      &.active a {
-        background-color: black;
-      }
+        margin: 10px;
+        font-weight: 300;
+        font-size: 15px;
     }
-  }
 }
 
-.jumbotron {
-  padding: 60px;
-  margin-bottom: 30px;
-  background-color: gainsboro;
-  border-radius: 6px;
-  text-align: center;
+.action-panel {
+    margin-top: 150px;
 }
 
-.btn {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  border: 1px solid transparent;
-  color: white;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 6px;
+.text-yellow {
+    color: $yellow;
 }
-
-.col {
-  float: left;
-  width: 33.33%;
-  position: relative;
-  padding-left: 15px;
-  padding-right: 15px;
-  box-sizing: border-box;
-
-  .thumbnail {
-    height: 200px;
-    border: 1px solid lightgrey;
-    border-radius: 4px;
-    margin-bottom: 20px;
-
-    .caption {
-      padding: 9px;
-    }
-
-    img.pull-right {
-      width: 50px;
-    }
-  }
+.yellow {
+    color: $yellow;
 }
+.text-white {
 
-.pull-right {
-  float: right;
 }
-
-hr {
-  clear: both;
-}
-
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject
    all your sass files automatically */
 // injector

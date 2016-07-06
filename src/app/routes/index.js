@@ -1,13 +1,13 @@
-import {UserPet} from './UserPet/UserPet.controller';
-import {UserGeo} from './UserGeo/UserGeo.controller';
-import {UserBasicInfo} from './UserBasicInfo/UserBasicInfo.controller';
-import {UserSummary} from './UserSummary/UserSummary.controller';
-import {UserSocial} from './UserSocial/UserSocial.controller';
-
+import {UserPetController} from './UserPet/UserPet.controller';
+import {UserGeoController} from './UserGeo/UserGeo.controller';
+import {UserBasicInfoController, UserSvc} from './UserBasicInfo/UserBasicInfo.controller';
+import {UserSummaryController} from './UserSummary/UserSummary.controller';
+import {UserSocialController} from './UserSocial/UserSocial.controller';
 
 export default angular.module('AppRoutes', [])
-    .controller('UserPet', UserPet)
-    .controller('UserGeo', UserGeo)
-    .controller('UserBasicInfo', UserBasicInfo)
-    .controller('UserSummary', UserSummary)
-    .controller('UserSocial', UserSocial)
+    .service('UserSvc', UserSvc)
+    .controller('UserPetController', UserPetController)
+    .controller('UserGeoController', UserGeoController)
+    .controller('UserBasicInfoController', UserBasicInfoController)
+    .controller('UserSummaryController', UserSummaryController)
+    .controller('UserSocialController', UserSocialController)

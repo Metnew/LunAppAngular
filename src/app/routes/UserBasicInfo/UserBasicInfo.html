@@ -1,0 +1,16 @@
+<div class="flex column column-center">
+    <div class="steps-container">
+        <label class="step btn" ng-repeat="step in [1,2,3,4]">
+            <span class="step-content" ng-class="{'finished': currentState.step < step, 'active': currentState.step === step}">{{step}}</span>
+        </label>
+        <span class="step-description">{{currentStep.description}}</span>
+    </div>
+    <form ng-submit="ctrl.finishStep()">
+        <input type="text" class="text-input" ng-model="user.name" ng-pattern="'w+'" maxlength="30" ng-class="" placeholder="Name" />
+        <input type="email" class="text-input" ng-model="user.email"  placeholder="Email"/>
+    </form>
+    <div class="action-panel">
+        <button class="btn white">Previous</button>
+        <button class="btn white">Next</button>
+    </div>
+</div>

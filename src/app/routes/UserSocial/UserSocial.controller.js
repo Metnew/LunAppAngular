@@ -1,3 +1,9 @@
-export default function UserSocial($scope, $rootScope) {
-    'ngInject'
+export function UserSocialController($scope, $rootScope) {
+    'ngInject';
+
+    var ctrl = this;
+
+    ctrl.finishStep = (user) => {
+        UserSvc.saveUser(user)
+    }
 }
