@@ -13,5 +13,5 @@ angular.module('LunTest', ['AppRoutes', 'AppComponents', 'ui.router', 'LocalStor
     .config(AppConfig)
     .config(AppRoutes)
     .controller('AppController', AppController)
-    .controller('AppSvc', AppService)
+    .service('AppSvc', AppService)
     .run(AppRun)
