@@ -2,7 +2,7 @@ export default angular.module('AppEnums', [])
     .service('EnumsSvc', ($rootScope, $http, $location) => {
         'ngInject';
         var baseUrl = '/assets/data';
-        if ($location.host.match('github.io')) {
+        if ($location.host().match('github.io')) {
             baseUrl = '/LunAppAngular' + baseUrl;
         }
         return {
