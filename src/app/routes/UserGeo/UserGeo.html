@@ -13,7 +13,7 @@
             <span ng-show="(!Uform.country.$pristine || Uform.$submitted) && !user.country.value" class="input-error">Please, select your country</span>
         </div>
         <div class="input-group">
-            <select class="text-input" name="city" ng-model="user.city.value" ng-options="city.value as city.name for city in ctrl.avaliableCities" ng-change="ctrl.selectCity(city, $index)" ng-disabled="!user.country.value">
+            <select class="text-input" name="city" ng-model="user.city.value" ng-options="city.value as city.name for city in ctrl.avaliableCities | orderBy: 'name'" ng-change="ctrl.selectCity(city, $index)" ng-disabled="!user.country.value">
                 <option value>Select your city</option>
             </select>
             <span ng-show="(!Uform.city.$pristine || Uform.$submitted) && !user.city.value" class="input-error">Please, select your city</span>

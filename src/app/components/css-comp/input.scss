@@ -46,6 +46,9 @@ select {
     // width: 100%;
     // display: flex;
     // min-width: 600px;
+    position: relative;
+     display: table;
+     border-collapse: separate;
     .input-error {
         margin-left: 10px;
         position: fixed;

@@ -21,6 +21,14 @@ export function UserSocialController($scope, $rootScope, UserSvc, $state, $log) 
         return (forSite.match(regexp[forSite]) !== null)
     }
 
+    ctrl.addHttpToUrl = (forNetwork) => {
+        // (forNetwork, event)
+        let pattern = ctrl.getRegexUrl(forNetwork)
+        if (!$scope.user.contacts[forNetwork] || $scope.user.contacts[forNetwork].indexOf(pattern) === -1) {
+            $scope.user.contacts[forNetwork] = pattern
+        }
+    }
+
     if (!$scope.user.contacts) {
         $scope.user.contacts = {
             tw: null,
@@ -31,22 +39,13 @@ export function UserSocialController($scope, $rootScope, UserSvc, $state, $log) 
     } else {
         for (let key in $scope.user.contacts) {
             let contact = $scope.user.contacts[key];
-            if (contact === ctrl.getRegexUrl(key)) {
-                $scope["userHave" + key.toUpperCase()] = false;
-                contact = null;
+            let upperCaseKey = key.toUpperCase();
+            if (contact === ctrl.getRegexUrl(key) || !contact) {
+                $scope["userHave" + upperCaseKey] = false;
+                $scope.user.contacts[key] = null;
+            } else {
+                $scope["userHave" + upperCaseKey] = true;
             }
-            if (contact !== null || contact !== ctrl.getRegexUrl(key)) {
-                $scope["userHave" + key.toUpperCase()] = true;
-            }
-        }
-    }
-
-
-    ctrl.addHttpToUrl = (forNetwork) => {
-        // (forNetwork, event)
-        let pattern = ctrl.getRegexUrl(forNetwork)
-        if (!$scope.user.contacts[forNetwork] || $scope.user.contacts[forNetwork].indexOf(pattern) === -1) {
-            $scope.user.contacts[forNetwork] = pattern
         }
     }
 
@@ -54,7 +53,11 @@ export function UserSocialController($scope, $rootScope, UserSvc, $state, $log) 
         if (newValue) {
             let copy = angular.copy(newValue)
             for (let key in newValue) {
-                if (!copy[key] || copy[key] === ctrl.getRegexUrl(key)) {
+                let regexUrl = ctrl.getRegexUrl(key);
+                if(copy[key] && !copy[key].match(regexUrl)) {
+                    newValue[key] = regexUrl
+                }
+                if (!copy[key] || copy[key] === regexUrl) {
                     delete copy[key]
                 }
             }

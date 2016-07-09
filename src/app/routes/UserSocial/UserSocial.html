@@ -8,10 +8,10 @@
         <span class="step-description">{{ctrl.currentState.data.description}}</span>
     </div>
 
-    <form class="md-column sm-column flex" name="Uform" ng-submit="ctrl.goToStep(ctrl.currentState.data.state + 1)" novalidate>
+    <form class="md-column sm-column flex" name="Uform" ng-submit="ctrl.goToStep(ctrl.currentStateNumber + 1)" novalidate>
         <div class="input-group checkbox-group flex baseline">
             <div>
-                <input type="checkbox" ng-model="userHaveFB" ng-checked="user.contacts.fb.length > 0" />
+                <input type="checkbox" ng-model="userHaveFB" />
                 <label>Facebook</label>
             </div>
             <input class="input-fixed" ng-keydown="ctrl.addHttpToUrl('fb', $event)" type="url" class="text-input" name="fb" ng-show="userHaveFB" ng-model="user.contacts.fb" placeholder="Your account link" />
@@ -38,10 +38,10 @@
             <input class="input-fixed" ng-keydown="ctrl.addHttpToUrl('ok', $event)" type="url" class="text-input" name="ok" ng-show="userHaveOK" ng-model="user.contacts.ok" placeholder="Your account link" />
         </div>
         <span ng-show="Uform.$submitted && !haveSocialNetworks" class="text-red">Please, submit at least one social network profile.</span>
-        <span ng-show="Uform.fb.$invalid && ctrl.isMatchUrlRegexp('fb')" class="text-red">Please, check your Facebook profile link.</span>
+        <!-- <span ng-show="Uform.fb.$invalid && ctrl.isMatchUrlRegexp('fb')" class="text-red">Please, check your Facebook profile link.</span>
         <span ng-show="Uform.vk.$invalid && ctrl.isMatchUrlRegexp('vk')" class="text-red">Please, check your Vkontakte profile link.</span>
         <span ng-show="Uform.tw.$invalid && ctrl.isMatchUrlRegexp('tw')" class="text-red">Please, check your Twitter profile link.</span>
-        <span ng-show="Uform.ok.$invalid && ctrl.isMatchUrlRegexp('ok')" class="text-red">Please, check your Odnoklassniki profile link.</span>
+        <span ng-show="Uform.ok.$invalid && ctrl.isMatchUrlRegexp('ok')" class="text-red">Please, check your Odnoklassniki profile link.</span> -->
 
         <div class="action-panel flex column-center">
             <button ng-click="ctrl.goToStep(ctrl.currentStateNumber - 1)" class="btn white">

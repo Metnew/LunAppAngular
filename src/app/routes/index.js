@@ -1,6 +1,7 @@
+import {UserBasicInfoController} from './UserBasicInfo/UserBasicInfo.controller';
+import {UserSvc} from './UserBasicInfo/UserBasicInfo.service';
 import {UserPetController} from './UserPet/UserPet.controller';
 import {UserGeoController} from './UserGeo/UserGeo.controller';
-import {UserBasicInfoController, UserSvc} from './UserBasicInfo/UserBasicInfo.controller';
 import {UserSummaryController} from './UserSummary/UserSummary.controller';
 import {UserSocialController} from './UserSocial/UserSocial.controller';
 
