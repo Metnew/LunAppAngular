@@ -2,15 +2,15 @@
 
 ### Is a good written, fully-featured example of Angular application.
 
-##### [Also, it's a job test from lun.ua.](www.lun.ua)
+##### [Also, it's a job test from lun.ua.](http://www.lun.ua)
 
 ## Code Climate
 
-All code pass checks on 'A' - [result](https://codeclimate.com/github/Metnew/LunAppAngular/code).
+All app's code pass checks on 'A' - [result](https://codeclimate.com/github/Metnew/LunAppAngular/code).
 
 ## Live version
 
-[Live version](https://metnew.github.io/LunAppAngular)
+[Live version.](https://metnew.github.io/LunAppAngular)
 
 ## Start:
 
