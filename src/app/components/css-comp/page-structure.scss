@@ -13,9 +13,9 @@ body {
 
 
 .page-container-wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    // position: absolute;
+    min-width: 100%;
+    min-height: 100%;
     > .page-layout {
         width: 100%;
         height: 100%;
@@ -23,26 +23,30 @@ body {
         flex-direction: column;
         overflow-y: auto;
         overflow-x: hidden;
-        position: relative;
+        // position: relative;
         -webkit-overflow-scrolling: touch;
         > .page-content-layout {
-            height: 100%;
-            display: inline-block;
-            overflow-y: scroll;
+            // min-height: 100%;
+            // height: 100%;
+            width: 100%;
+            display: flex;
             overflow-x: hidden;
             flex-grow: 1;
             z-index: 1;
+            min-height: 100%;
+            position: absolute;
             > .page-container {
                 width: 100%;
                 display: flex;
                 flex-flow: row wrap;
-                align-items: stretch;
-                max-width: 1600px;
-                height: 100%;
+                align-items: center;
+                min-height: 100%;
+                position: relative;
                 main.content {
-                    max-width: 960px;
-                    height: 100%;
-                    width: 100%;
+                    // max-width: 960px;
+                    position: relative;
+                    min-height: 100%;
+                    margin: 0 auto;
                     display: flex;
                     flex-flow: row wrap;
                     align-items: stretch;
@@ -56,18 +60,46 @@ body {
     display: flex;
 }
 
-.row {
-    flex-direction: row;
-}
-
-.column {
-    flex-direction: column;
-}
-
 .row-center {
     align-content: center;
 }
-
 .column-center {
     justify-content: center;
+}
+.align-center {
+    align-items: center;
+}
+.space-between {
+    justify-content: space-between;
+}
+
+.baseline {
+    vertical-align: baseline;
+}
+.grow {
+    flex-grow: 1;
+}
+
+@media screen and (max-width: 767px) {
+    .sm-row {
+        flex-direction: row;
+    }
+
+    .sm-column {
+        flex-direction: column;
+    }
+
+    .sm-column-reverse {
+        flex-direction: column-reverse;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .md-row {
+        flex-direction: row;
+    }
+
+    .md-column {
+        flex-direction: column;
+    }
 }

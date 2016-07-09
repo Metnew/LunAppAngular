@@ -1,0 +1,57 @@
+<div class="flex md-column sm-column column-center">
+    <div class="steps-container column-center align-center md-column sm-column flex">
+        <div>
+            <label class="step btn" ng-repeat="step in [1,2,3,4]" ng-class="{'finished': ctrl.currentStateNumber > step, 'current': ctrl.currentStateNumber === step}" ng-disabled="ctrl.currentStateNumber < step" ng-click="ctrl.goToStep(step)">
+                <span class="step-content">{{step}}</span>
+            </label>
+        </div>
+        <span class="step-description">{{ctrl.currentState.data.description}}</span>
+    </div>
+
+    <form class="md-column sm-column flex" name="Uform" ng-submit="ctrl.goToStep(ctrl.currentState.data.state + 1)" novalidate>
+        <div class="input-group checkbox-group flex baseline">
+            <div>
+                <input type="checkbox" ng-model="userHaveFB" ng-checked="user.contacts.fb.length > 0" />
+                <label>Facebook</label>
+            </div>
+            <input class="input-fixed" ng-keydown="ctrl.addHttpToUrl('fb', $event)" type="url" class="text-input" name="fb" ng-show="userHaveFB" ng-model="user.contacts.fb" placeholder="Your account link" />
+        </div>
+        <div class="input-group checkbox-group flex baseline">
+            <div class="sm-row">
+                <input type="checkbox" ng-model="userHaveVK" />
+                <label>Vkontakte</label>
+            </div class="sm-row">
+            <input class="input-fixed" ng-keydown="ctrl.addHttpToUrl('vk', $event)" type="url" class="text-input" name="vk" ng-show="userHaveVK" ng-model="user.contacts.vk" placeholder="Your account link" />
+        </div>
+        <div class="input-group checkbox-group flex baseline">
+            <div class="sm-row">
+                <input type="checkbox" ng-model="userHaveTW" />
+                <label>Twitter</label>
+            </div>
+            <input class="input-fixed" ng-keydown="ctrl.addHttpToUrl('tw', $event)" type="url" class="text-input" name="tw" ng-show="userHaveTW" ng-model="user.contacts.tw" placeholder="Your account link" />
+        </div>
+        <div class="input-group checkbox-group flex baseline">
+            <div class="sm-row">
+                <input type="checkbox" ng-model="userHaveOK" />
+                <label>Odnoklassniki</label>
+            </div>
+            <input class="input-fixed" ng-keydown="ctrl.addHttpToUrl('ok', $event)" type="url" class="text-input" name="ok" ng-show="userHaveOK" ng-model="user.contacts.ok" placeholder="Your account link" />
+        </div>
+        <span ng-show="Uform.$submitted && !haveSocialNetworks" class="text-red">Please, submit at least one social network profile.</span>
+        <span ng-show="Uform.fb.$invalid && ctrl.isMatchUrlRegexp('fb')" class="text-red">Please, check your Facebook profile link.</span>
+        <span ng-show="Uform.vk.$invalid && ctrl.isMatchUrlRegexp('vk')" class="text-red">Please, check your Vkontakte profile link.</span>
+        <span ng-show="Uform.tw.$invalid && ctrl.isMatchUrlRegexp('tw')" class="text-red">Please, check your Twitter profile link.</span>
+        <span ng-show="Uform.ok.$invalid && ctrl.isMatchUrlRegexp('ok')" class="text-red">Please, check your Odnoklassniki profile link.</span>
+
+        <div class="action-panel flex column-center">
+            <button ng-click="ctrl.goToStep(ctrl.currentStateNumber - 1)" class="btn white">
+                <i class="fa fa-chevron-left"></i>
+                <span>Previous</span>
+            </button>
+            <button type="submit" ng-click="ctrl.goToStep(ctrl.currentStateNumber + 1)" class="btn white">
+                <span>Next</span>
+                <i class="fa fa-chevron-right"></i>
+            </button>
+        </div>
+    </form>
+</div>

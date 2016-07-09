@@ -32,4 +32,15 @@
         color: $white;
         background-color: $yellow;
     }
+    i {
+        & + span {
+            margin-left: 10px;
+        }
+    }
+
+    span {
+        & + i {
+            margin-left: 10px;
+        }
+    }
 }

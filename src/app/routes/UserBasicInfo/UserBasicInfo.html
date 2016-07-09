@@ -1,16 +1,38 @@
-<div class="flex column column-center">
+<div class="flex md-column sm-column column-center">
     <div class="steps-container">
-        <label class="step btn" ng-repeat="step in [1,2,3,4]">
-            <span class="step-content" ng-class="{'finished': currentState.step < step, 'active': currentState.step === step}">{{step}}</span>
+        <label class="step btn" ng-repeat="step in [1,2,3,4]" ng-class="{'finished': ctrl.isStepFinished(step), 'current': ctrl.currentState.data.state === step}" ng-disabled="ctrl.isDisabledStep(step)" ng-click="ctrl.goToStep(step)">
+            <span class="step-content">{{step}}</span>
         </label>
-        <span class="step-description">{{currentStep.description}}</span>
+        <span class="step-description">{{ctrl.currentState.data.description}}</span>
     </div>
-    <form ng-submit="ctrl.finishStep()">
-        <input type="text" class="text-input" ng-model="user.name" ng-pattern="'w+'" maxlength="30" ng-class="" placeholder="Name" />
-        <input type="email" class="text-input" ng-model="user.email"  placeholder="Email"/>
+    <form class="flex align-center md-column sm-column" name="Uform" ng-submit="ctrl.goToStep(ctrl.currentState.data.state + 1)" novalidate>
+        <div class="input-group">
+            <!-- <div class="col-md-9"> -->
+            <input type="text" name="name" ng-class="{'error': Uform.$submitted && Uform.name.$error.required}" class="text-input" ng-model="user.name" placeholder="Name" required/>
+            <!-- </div>
+            <div class="col-md-3"> -->
+            <span ng-show="Uform.name.$error.required && !Uform.name.$pristine && Uform.name.$touched || (Uform.name.$invalid && Uform.$submitted)" class="input-error">  - Name is required!</span>
+            <span ng-show="" class="input-error">  - Name is required!</span>
+
+            <!-- </div> -->
+        </div>
+        <div class="input-group">
+            <!-- <div class="col-md-9"> -->
+            <input type="email" ng-class="{'error': Uform.$submitted && Uform.email.$error.required}" class="text-input" name="email" ng-model="user.email" placeholder="Email" required/>
+            <!-- </div> -->
+            <!-- <div class="col-md-3"> -->
+            <span class="input-error" ng-show="Uform.email.$invalid && !Uform.email.$pristine && Uform.email.$touched || Uform.$submitted && Uform.email.$invalid">- Email is invalid!</span>
+        </div>
+        <!-- </div> -->
+        <div class="action-panel flex">
+            <button ng-click="ctrl.goToStep(ctrl.currentState.data.state - 1)" disabled="true" class="btn white">
+                <i class="fa fa-chevron-left"></i>
+                <span>Previous</span>
+            </button>
+            <button type="submit" ng-click="ctrl.goToStep(ctrl.currentState.data.state + 1)" class="btn white">
+                <span>Next</span>
+                <i class="fa fa-chevron-right"></i>
+            </button>
+        </div>
     </form>
-    <div class="action-panel">
-        <button class="btn white">Previous</button>
-        <button class="btn white">Next</button>
-    </div>
 </div>

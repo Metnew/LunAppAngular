@@ -1,0 +1,32 @@
+<div class="flex md-column sm-column column-center">
+    <div class="steps-container">
+        <label class="step btn" ng-repeat="step in [1,2,3,4]" ng-class="{'finished': ctrl.isStepFinished(step), 'current': ctrl.currentState.data.state === step}" ng-disabled="ctrl.isDisabledStep(step)" ng-click="ctrl.goToStep(step)">
+            <span class="step-content">{{step}}</span>
+        </label>
+        <span class="step-description">{{ctrl.currentState.data.description}}</span>
+    </div>
+    <form class="flex align-center md-column sm-column" name="Uform" ng-submit="ctrl.goToStep(ctrl.currentState.data.state + 1)"  novalidate>
+        <div class="input-group">
+            <select class="text-input" name="country" ng-model="user.country.value" ng-options="key as value for (key, value) in ctrl.countries" ng-change="ctrl.selectCountry()" ng-class="">
+                <option value>Select your country</option>
+            </select>
+            <span ng-show="(!Uform.country.$pristine || Uform.$submitted) && !user.country.value" class="input-error">Please, select your country</span>
+        </div>
+        <div class="input-group">
+            <select class="text-input" name="city" ng-model="user.city.value" ng-options="city.value as city.name for city in ctrl.avaliableCities" ng-change="ctrl.selectCity(city, $index)" ng-disabled="!user.country.value">
+                <option value>Select your city</option>
+            </select>
+            <span ng-show="(!Uform.city.$pristine || Uform.$submitted) && !user.city.value" class="input-error">Please, select your city</span>
+        </div>
+        <div class="action-panel flex column-center">
+            <button ng-click="ctrl.goToStep(ctrl.currentState.data.state - 1)" class="btn white">
+                <i class="fa fa-chevron-left"></i>
+                <span>Previous</span>
+            </button>
+            <button type="submit" ng-click="ctrl.goToStep(ctrl.currentState.data.state + 1)" class="btn white">
+                <span>Next</span>
+                <i class="fa fa-chevron-right"></i>
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,25 +1,30 @@
-<div class="card">
-    <div class="card-content">
-        <span class="card-title">
+<div class="flex md-column sm-column column-center">
+    <div class="card flex md-row sm-column-reverse">
+        <div class="card-content space-between sm-column md-column flex">
+            <div class="flex sm-column md-column">
+            <span class="card-title">
             {{user.name}}
         </span>
-        <span class="card-subtitle">
+            <span class="card-subtitle">
             {{user.email}}
         </span>
+    </div>
 
-        <p>{{user.city}}, {{user.country}}</p>
+            <p class="text-grey">{{user.city.name}}, {{user.country.name}}</p>
 
-        <div class="card-image">
-            <img ng-src="{{user.pet}}" />
+            <div class="card-links">
+                <span ng-repeat="(key, value) in user.contacts" ng-if="value">
+                    {{ctrl.convertSocialNetworkKey(key)}} <a ng-href="{{value}}">{{value}}</a>
+                </span>
+                <span ng-if="user.contacts.length == 0">User haven't got social networks :(</span>
+            </div>
         </div>
-
-        <div class="card-links">
-            <a ng-repeat="(key, value) for contact in user.contacts">
-                <span class="text-grey">{{key}}:</span> {{value}}
-            </a>
+        <div class="card-image flex md-column sm-column align-center">
+            <div class="img-cell" style="background-image: url({{user.pet.url}});">
+            </div>
         </div>
     </div>
-</div>
-<div class="actions-panel">
-    <button class="yellow btn" ng-click="ctrl.restartQuiz()">Restart Quiz</button>
+    <div class="actions-panel flex column-center">
+        <button class="yellow btn" ng-click="ctrl.restartQuiz()">Restart Quiz</button>
+    </div>
 </div>

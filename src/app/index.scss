@@ -4,14 +4,15 @@
 // endbower
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700&subset=latin,cyrillic);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css);
-//vars
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css);
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css); //vars
 $yellow: #ff9800;
 $white: #fff;
+$red: #f00;
+$blue: rgba(47, 78, 198, 1);
 $body-background: #f5f5f5;
 $shadow-1: 0 1px 2px rgba(0,0,0,0.2);
-$grey-text: #bbbbbb;
-
-// mixins
+$grey-text: #bbbbbb; // mixins
 @mixin easy-transition-in() {
     opacity: 1;
     transition: opacity 0.3s ease;
@@ -23,24 +24,26 @@ $grey-text: #bbbbbb;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-
 // box-sizing
 * {
     box-sizing: border-box;
 }
-
 // normalize text length
 .steps-container {
     margin-bottom: 16px;
     label.step {
         background-color: $white;
-        padding: 0px;
+        padding: 0;
         min-width: 40px;
         width: 40px;
         height: 40px;
-
+        color: $grey-text;
         &.finished {
             color: $yellow;
+        }
+        &.current {
+            cursor: default;
+            color: inherit;
         }
         & + .step {
             margin-right: 8px;
@@ -53,11 +56,6 @@ $grey-text: #bbbbbb;
         font-size: 15px;
     }
 }
-
-.action-panel {
-    margin-top: 150px;
-}
-
 .text-yellow {
     color: $yellow;
 }
@@ -65,7 +63,84 @@ $grey-text: #bbbbbb;
     color: $yellow;
 }
 .text-white {
-
+    color: $white;
+}
+.text-red {
+    color: $red;
+}
+.img-cell {
+    margin: 16px;
+    width: 150px;
+    height: 150px;
+    min-height: 150px;
+    background-size: cover;
+    background-position: center;
+    @include shadow-1();
+    border-radius: 2px;
+    &.selected {
+        border: 2px solid $yellow;
+    }
+}
+.card {
+    position: relative;
+    background-color: $white;
+    margin-bottom: 3.2rem;
+    @include shadow-1();
+    .card-content {
+        padding: 24px;
+        .card-subtitle,
+        .card-title {
+            display: block;
+        }
+        .card-title {
+            font-size: 20px;
+            line-height: 28px;
+        }
+        .card-subtitle {
+            line-height: 22px;
+            font-size: 15px;
+            color: $grey-text;
+        }
+        p {
+            margin: 3rem 0;
+        }
+        .card-links {
+            span {
+                line-height: 20px;
+                display: block;
+                color: $blue;
+                letter-spacing: 0.03rem;
+                a {
+                    color: $grey-text;
+                }
+            }
+        }
+    }
+    .card-image {
+        padding: 24px;
+        .img-cell {
+            margin: 0;
+            width: 200px;
+            height: 195px;
+        }
+    }
+}
+.action-panel {
+    margin-top: 50px;
+}
+@media screen and (min-width: 768px) {
+    .action-panel {
+        margin-top: 150px;
+    }
+}
+@media screen and (max-width:767px) {
+    .card {
+        .card-content {
+            .card-links {
+                position: relative;
+            }
+        }
+    }
 }
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject
    all your sass files automatically */

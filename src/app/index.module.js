@@ -5,12 +5,13 @@ import {
     AppRoutes,
     AppService
 } from './app.core';
+import './app.core/app.enums';
 import './routes';
 import './components';
 
-angular.module('LunTest', ['AppRoutes', 'AppComponents', 'ui.router'])
+angular.module('LunTest', ['AppRoutes', 'AppComponents', 'ui.router', 'LocalStorageModule', 'AppEnums'])
     .config(AppConfig)
     .config(AppRoutes)
-    .run(AppRun)
     .controller('AppController', AppController)
-    .controller('AppService', AppService)
+    .controller('AppSvc', AppService)
+    .run(AppRun)

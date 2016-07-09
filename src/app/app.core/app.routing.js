@@ -13,7 +13,8 @@ export default function AppRouting($stateProvider, $urlRouterProvider, $location
             controllerAs: 'ctrl',
             data: {
                 pageTitle: 'Basic Info',
-                state: 1
+                state: 1,
+                description: '1. Insert your name and email'
             },
             resolve: {
 
@@ -26,10 +27,11 @@ export default function AppRouting($stateProvider, $urlRouterProvider, $location
             controllerAs: 'ctrl',
             data: {
                 pageTitle: 'Geo Info',
-                state: 2
+                state: 2,
+                description: '2. Select your country and city'
             },
             resolve: {
-                
+
             }
         })
         .state('social', {
@@ -39,7 +41,8 @@ export default function AppRouting($stateProvider, $urlRouterProvider, $location
             controllerAs: 'ctrl',
             data: {
                 pageTitle: 'Social Info',
-                state: 3
+                state: 3,
+                description: '3. Select your social networks'
             },
             resolve: {}
         })
@@ -50,7 +53,9 @@ export default function AppRouting($stateProvider, $urlRouterProvider, $location
             controllerAs: 'ctrl',
             data: {
                 pageTitle: 'Pet Info',
-                state: 4
+                state: 4,
+                description: '4. Select your favorite cat'
+
             },
             resolve: {}
         })

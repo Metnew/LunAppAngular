@@ -1,28 +1,109 @@
+@mixin text-input() {
+    margin: 5px 0;
+    border-radius: 2px;
+    border: 2px solid transparent;
+    padding: 15px;
+    min-height: 45px;
+    min-width: 250px;
+    max-width: 250px;
+    &.ng-invalid.ng-touched, &.error {
+        border-color: $red;
+    }
+    &::placeholder {
+        @include easy-transition-in();
+        color: $grey-text;
+    }
+    &:focus {
+        &::placeholder {
+            @include easy-transition-out();
+        }
+    }
+}
+input,
+select {
+    background-color: $white;
+}
 input {
-    width: 100%;
     &[type="email"],
     &[type="number"],
     &[type="text"] {
-        margin: 5px 0;
-        border-radius: 2px;
-        border: 0px;
-        padding: 15px;
-
-        &.ng-invalid {}
-        &::placeholder {
-            // mixin easy-transition-in();
-            color: $grey-text;
-        }
-        &:focus {
-            &::placeholder {
-                // easy-transition-out();
-            }
-        }
+        @include text-input();
         @include shadow-1();
+    }
+    &[type="checkbox"] {
+        margin: 10px 5px;
     }
 }
 form {
-    padding: 10px 0px;
+    padding: 10px 0;
 }
-select {}
-input[type="checkbox"] {}
+select {
+    appearance: none;
+    @include text-input();
+    @include shadow-1();
+}
+.input-group {
+    // width: 100%;
+    // display: flex;
+    // min-width: 600px;
+    .input-error {
+        margin-left: 10px;
+        position: fixed;
+        color: $red;
+        line-height: 62px;
+    }
+
+    &.checkbox-group {
+        align-items: center;
+        margin: 10px;
+        label {
+            margin-bottom: 0px;
+            margin-left: 5px;
+            width: 80px;
+            font-weight: 400;
+            margin-right: 25px;
+        }
+        input.input-fixed {
+            position: fixed;
+            width: 200px;
+            min-height: 35px;
+            height: 35px;
+            padding: 10px;
+            font-size: 14px;
+            margin-top: -2px;
+            + .input-error {
+                line-height: 45px;
+                margin-top: 28px;
+            }
+        }
+    }
+}
+
+
+
+
+
+@media screen and (max-width: 767px) {
+    .input-group {
+        flex-direction: column;
+        .input-error {
+            display: flex;
+            position: relative;
+        }
+        &.checkbox-group {
+            input.input-fixed {
+                position: relative;
+                width: 200px;
+                min-height: 35px;
+                height: 35px;
+                padding: 10px;
+                font-size: 14px;
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+}

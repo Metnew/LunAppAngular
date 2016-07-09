@@ -4,4 +4,4 @@ import AppRoutes from './app.routing'
 import AppController from './app.controller';
 import AppService from './app.service';
 
-export {AppRun, AppController, AppConfig, AppService, AppRoutes};
+export {AppRun,  AppConfig, AppService, AppRoutes, AppController};

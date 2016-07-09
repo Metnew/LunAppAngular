@@ -1,0 +1,28 @@
+<div class="flex md-column sm-column column-center">
+    <div class="steps-container column-center align-center md-column sm-column flex">
+        <div>
+        <label class="step btn" ng-repeat="step in [1,2,3,4]" ng-class="{'finished': ctrl.currentState.data.state > step, 'current': ctrl.currentState.data.state === step}" ng-click="ctrl.goToStep(step)">
+            <span class="step-content">{{step}}</span>
+        </label>
+    </div>
+        <span class="step-description">{{ctrl.currentState.data.description}}</span>
+    </div>
+
+    <div class="img-container sm-column align-center flex">
+        <div class="img-cell" ng-repeat="pet in ctrl.pets" ng-class="{'selected': ctrl.isSelected(pet)}" ng-model="user.pet" ng-click="ctrl.selectPet(pet)" style="background-image: url({{pet.url}});"></div>
+    </div>
+    <span ng-show="!ctrl.isCat()" class="text-red">You chose dog. But you need to choose a cat.</span>
+    <span ng-show="haveNoPet && user.pet.type == null" class="text-red">Please, choose a cat.</span>
+
+
+    <div class="action-panel flex column-center">
+        <button ng-click="ctrl.goToStep(ctrl.currentState.data.state - 1)" class="btn white">
+            <i class="fa fa-chevron-left"></i>
+            <span>Previous</span>
+        </button>
+        <button ng-click="ctrl.goToStep(ctrl.currentState.data.state + 1)" class="btn white">
+            <span>Next</span>
+            <i class="fa fa-chevron-right"></i>
+        </button>
+    </div>
+</div>

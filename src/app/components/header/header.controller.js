@@ -1,4 +1,4 @@
-export function HeaderController($scope) {
+export function HeaderController($log) {
     'ngInject';
-    console.log('header is invisible; VOODOO')
+    $log.debug('header is optional')
 }
