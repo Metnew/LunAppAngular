@@ -1,10 +1,16 @@
-# lun.ua-test
+# LunAppAngular
 
-[lun.ua test](www.lun.ua)
+### Is a good written, fully-featured example of Angular application.
+
+##### [Also, it's a job test from lun.ua.](www.lun.ua)
+
+## Code Climate
+
+All code pass checks on 'A' - [result](https://codeclimate.com/github/Metnew/LunAppAngular/code).
 
 ## Live version
 
-[Visit for live version](https://metnew.github.io/LunAppAngular)
+[Live version](https://metnew.github.io/LunAppAngular)
 
 ## Start:
 
@@ -15,8 +21,12 @@ npm start
 
 ## Tools
 
-- **Angular** ~1.5 + additional modules
-- **Bootstrap** import in css, **just for few lines.**
-- **Session storage** for storing data on client.
-- **Gulp** and **Webpack** for build
-- **ES6** standard
+- **Angular** ~1.5 + additional modules.
+- **App user LocalStorage** for storing data on client.
+- **Gulp** and **Webpack** for build.
+- **ESLint** validation.
+- **ES6** standard.
+
+## License
+
+MIT
