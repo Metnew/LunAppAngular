@@ -1,4 +1,4 @@
-export function UserPetController($scope, $rootScope, UserSvc, $state, $log) {
+export function UserPetController($scope, $rootScope, UserSvc, $state, $location, $log) {
     'ngInject';
 
     var ctrl = this;
@@ -33,6 +33,13 @@ export function UserPetController($scope, $rootScope, UserSvc, $state, $log) {
         url: '/assets/images/dog4.jpg',
         type: 'dog'
     }]
+
+    if ($location.host().match('github.io')) {
+        ctrl.pets.map((pet) => {
+            pet.url = '/LunAppAngular' + pet.url;
+            return pet;
+        })
+    }
 
     ctrl.selectPet = (pet) => {
         $scope.haveNoPet = false;
