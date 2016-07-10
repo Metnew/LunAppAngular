@@ -1,13 +1,17 @@
 export default function AppRouting($stateProvider, $urlRouterProvider, $locationProvider) {
     'ngInject';
 
-    $urlRouterProvider.otherwise('/');
+    // let defaultPath = '/'
+    // if ($location.host().match('github.io')) {
+    let defaultPath = '/LunAppAngular';
+    // }
+    $urlRouterProvider.otherwise(defaultPath);
     $locationProvider.html5Mode(true);
 
     $stateProvider
     // Dashboard
         .state('basic', {
-            url: '/',
+            url: defaultPath,
             templateUrl: 'app/routes/UserBasicInfo/UserBasicInfo.html',
             controller: 'UserBasicInfoController',
             controllerAs: 'ctrl',
@@ -21,7 +25,7 @@ export default function AppRouting($stateProvider, $urlRouterProvider, $location
             }
         })
         .state('geo', {
-            url: '/geo',
+            url: defaultPath + '/geo',
             templateUrl: 'app/routes/UserGeo/UserGeo.html',
             controller: 'UserGeoController',
             controllerAs: 'ctrl',
@@ -35,7 +39,7 @@ export default function AppRouting($stateProvider, $urlRouterProvider, $location
             }
         })
         .state('social', {
-            url: '/social',
+            url: defaultPath + '/social',
             templateUrl: 'app/routes/UserSocial/UserSocial.html',
             controller: 'UserSocialController',
             controllerAs: 'ctrl',
@@ -47,7 +51,7 @@ export default function AppRouting($stateProvider, $urlRouterProvider, $location
             resolve: {}
         })
         .state('pet', {
-            url: '/pet',
+            url: defaultPath + '/pet',
             templateUrl: 'app/routes/UserPet/UserPet.html',
             controller: 'UserPetController',
             controllerAs: 'ctrl',
@@ -60,7 +64,7 @@ export default function AppRouting($stateProvider, $urlRouterProvider, $location
             resolve: {}
         })
         .state('summary', {
-            url: '/summary',
+            url: defaultPath + '/summary',
             templateUrl: 'app/routes/UserSummary/UserSummary.html',
             controller: 'UserSummaryController',
             controllerAs: 'ctrl',
