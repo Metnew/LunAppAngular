@@ -1,9 +1,9 @@
 export default function AppRouting($stateProvider, $urlRouterProvider, $locationProvider) {
     'ngInject';
 
-    // let defaultPath = '/'
+    let defaultPath = ''
     // if ($location.host().match('github.io')) {
-    let defaultPath = '/LunAppAngular';
+    // let defaultPath = '/LunAppAngular';
     // }
     $urlRouterProvider.otherwise(defaultPath);
     $locationProvider.html5Mode(true);
@@ -11,7 +11,7 @@ export default function AppRouting($stateProvider, $urlRouterProvider, $location
     $stateProvider
     // Dashboard
         .state('basic', {
-            url: defaultPath,
+            url: defaultPath + '/',
             templateUrl: 'app/routes/UserBasicInfo/UserBasicInfo.html',
             controller: 'UserBasicInfoController',
             controllerAs: 'ctrl',
