@@ -22,7 +22,7 @@ npm start
 ## Tools
 
 - **Angular** ~1.5 + additional modules.
-- **App user LocalStorage** for storing data on client.
+- **App use LocalStorage** for storing data on client.
 - **Gulp** and **Webpack** for build.
 - **ESLint** validation.
 - **ES6** standard.
