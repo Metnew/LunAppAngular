@@ -1,10 +1,8 @@
 # LunAppAngular
 
-### Is a good written, fully-featured example of Angular application.
+## It's a good written, fully-featured example of Angular 1.@ application.
 
-##### [Also, it's a job test from lun.ua.](http://www.lun.ua)
-
-## Code Climate
+#### Code Climate
 
 All app's code pass checks on 'A' - [result](https://codeclimate.com/github/Metnew/LunAppAngular/code).
 
