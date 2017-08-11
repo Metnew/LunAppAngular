@@ -1,5 +1,7 @@
 # LunAppAngular
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Metnew/LunAppAngular.svg)](https://greenkeeper.io/)
+
 ## It's a good written, fully-featured example of Angular 1.@ application.
 
 #### Code Climate
